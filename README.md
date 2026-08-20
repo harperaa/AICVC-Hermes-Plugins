@@ -80,24 +80,18 @@ survives restarts and upgrades. You need
 [Docker Desktop](https://docs.docker.com/get-docker/) (Mac/Windows) or
 Docker Engine (Linux).
 
-### Mac — Apple Silicon (M1/M2/M3/M4)
-
-```bash
-docker run -d --name hermes-plugins --platform linux/amd64 \
-  -p 127.0.0.1:9119:9119 \
-  -v hermes_data:/opt/data ghcr.io/harperaa/hermes-plugins:stable
-```
-
-(The image is linux/amd64; `--platform linux/amd64` runs it under Apple's
-Rosetta emulation — slower, but fully functional.)
-
-### Mac — Intel, and Linux
+### Mac (Apple Silicon or Intel) and Linux
 
 ```bash
 docker run -d --name hermes-plugins \
   -p 127.0.0.1:9119:9119 \
   -v hermes_data:/opt/data ghcr.io/harperaa/hermes-plugins:stable
 ```
+
+The image is multi-arch (amd64 + arm64), so Apple Silicon Macs
+(M1/M2/M3/M4) run it natively. Only if you see
+`no matching manifest for linux/arm64` (an older, pre-multi-arch image),
+add `--platform linux/amd64` right after `run` and re-pull later.
 
 ### Windows (PowerShell, with Docker Desktop running)
 
