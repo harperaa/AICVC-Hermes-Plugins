@@ -15,9 +15,9 @@ short-form content, offers, delivery, and daily executive intel.
 |---|---|
 | [AI Cyber Value Creator](https://github.com/harperaa/hermes-plugin-ai-cyber-value-creator) | The AICVC roadmap: coached steps from ICP clarity to scale, run as agent tasks |
 | [Your Level](https://github.com/harperaa/hermes-plugin-value-creator-level) | The Levels of AI Building ladder — placement exam, badges, level-up challenges |
-| [YouTube Insights](https://github.com/harperaa/hermes-plugin-youtube-insights) | Competitor channel tracking, transcripts, trends, an insight base, long-form scripts |
-| [Short Form (Shorts Lab)](https://github.com/harperaa/shorts-lab) | Shorts + ads research, derivative scripts, image-ad cloning, site describer videos |
-| [Value Dashboard](https://github.com/harperaa/value-dashboard) | Your metrics home — AI ROI computed from real provider usage |
+| [Long Form (YouTube Insights)](https://github.com/harperaa/hermes-plugin-youtube-insights) | Competitor channel tracking, transcripts, trends, an insight base, long-form scripts |
+| [Short Form (Shorts Lab)](https://github.com/harperaa/hermes-plugin-shorts-lab) | Shorts + ads research, derivative scripts, image-ad cloning, site describer videos |
+| [Value Dashboard](https://github.com/harperaa/hermes-plugin-value-dashboard) | Your metrics home — AI ROI computed from real provider usage |
 | [Offer Doc](https://github.com/harperaa/hermes-plugin-offer-doc) | Coached offer design (promise, bonuses, guarantee, payments, timing) → signed 1-2 page doc |
 | [Delivery Kit](https://github.com/harperaa/hermes-plugin-delivery-kit) | Client delivery workspace and artifacts |
 | [Daily Brief](https://github.com/harperaa/hermes-plugin-daily-brief) | Scheduled executive intel brief, delivered every morning |
@@ -141,8 +141,8 @@ and usage:
 - https://github.com/harperaa/hermes-plugin-ai-cyber-value-creator
 - https://github.com/harperaa/hermes-plugin-value-creator-level
 - https://github.com/harperaa/hermes-plugin-youtube-insights
-- https://github.com/harperaa/shorts-lab
-- https://github.com/harperaa/value-dashboard
+- https://github.com/harperaa/hermes-plugin-shorts-lab
+- https://github.com/harperaa/hermes-plugin-value-dashboard
 - https://github.com/harperaa/hermes-plugin-offer-doc
 - https://github.com/harperaa/hermes-plugin-delivery-kit
 - https://github.com/harperaa/hermes-plugin-daily-brief
