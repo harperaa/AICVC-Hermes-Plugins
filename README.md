@@ -94,17 +94,11 @@ Same flow as Standard, with two differences:
 2. **Your memory server URL:** in Railway, open your project and click
    the **honcho-api** service — the `https://…up.railway.app` domain
    shown at the top of the card is the URL.
-3. **Your access token:** in Railway, open the **hermes** service →
-   **Deployments** → latest deploy → **View logs**, and **search the logs
-   for `Token:`** — it's in the
-   `MEMORY (Honcho) — OpenConcho desktop access` banner. (Railway can
-   interleave startup lines, so the banner rows may appear split apart —
-   the `Token:` line is the one you need. The banner reprints on every
-   boot, so it's always in the *latest* deploy's logs.) Easier still:
-   once you're logged into your dashboard, the token is on the **Keys**
-   page as `HONCHO_ADMIN_JWT`. The banner also shows a **Memory check**
-   line — if it says anything but WORKING, it tells you exactly what to
-   fix.
+3. **Your access token:** log into your dashboard and open the **Keys**
+   page — the token is there as `HONCHO_ADMIN_JWT`. (For security the
+   token is never printed in logs.) The deploy logs do carry a
+   `MEMORY (Honcho)` banner with your URL and a **Memory check** line —
+   if that says anything but WORKING, it tells you exactly what to fix.
 4. In OpenConcho: add a connection, paste the URL and token, hit
    **Test connection**, then **Save**. You'll see your workspace, the
    people from your meetings as peers, and everything your agent has
