@@ -70,7 +70,9 @@ https://console.x.ai (you add it *after* boot, in the dashboard).
 
 ### Deploy — Memory Edition
 
-_Deploy link coming soon._
+1. **Open the deploy link:**
+
+   **https://railway.com/deploy/8eU3xZ?referralCode=7XgUoY**
 
 Same flow as Standard, with two differences:
 
