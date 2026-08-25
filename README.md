@@ -136,13 +136,13 @@ exactly where it is:
    history** ships into memory automatically — every past conversation,
    meeting, brief, doc, and insight. Nothing to export, nothing to run.
 
-   **What to expect:** the sync runs hourly (daytime hours) and moves up
-   to ~2,000 chat messages per run, so a long history takes a few runs to
-   finish — watch the peers and sessions multiply in OpenConcho with each
-   pass. After the raw history lands, the memory system keeps working in
-   the background digesting it into conclusions, so answers about your
-   history get noticeably richer over the first day. New conversations
-   are captured live from the moment you redeploy.
+   **What to expect:** the first sync run (within the hour, daytime)
+   drains your whole history in one go — watch the peers and sessions
+   fill in inside OpenConcho. Only a truly huge history spills into a
+   second hourly run. After the raw history lands, the memory system
+   keeps digesting it into conclusions in the background, so answers
+   about your history get noticeably richer over the first day. New
+   conversations are captured live from the moment you redeploy.
 6. OpenConcho access works exactly as described above (URL from the
    honcho-api service card, token on your Keys page).
 
