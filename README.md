@@ -30,13 +30,19 @@ path** — one click, hosted, always on, scheduled jobs just run.
 ## Option 1 — Railway (recommended, ~10 minutes)
 
 You get the full platform hosted on Railway: every plugin pre-installed,
-cron jobs wired, HTTPS URL, data on a persistent volume.
+cron jobs wired, HTTPS URL, data on a persistent volume. **Two templates
+to choose from:**
+
+| Template | What you get | Extra requirement |
+|---|---|---|
+| **Standard** | The full platform (all plugins, scheduled jobs) | — |
+| **Memory Edition** | Everything in Standard **plus a persistent AI memory system** ([Honcho](https://honcho.dev)): your agent remembers every conversation and meeting, builds profiles of the people you work with, and you can browse it all with the OpenConcho desktop app | An OpenAI API key at deploy time (powers the memory reasoning + embeddings) |
 
 **You need:** a [Railway](https://railway.app) account on a paid plan (the
 container is not free-tier sized), and an xAI API key from
 https://console.x.ai (you add it *after* boot, in the dashboard).
 
-### Step by step
+### Deploy — Standard template
 
 1. **Open the deploy link:**
 
@@ -62,14 +68,53 @@ https://console.x.ai (you add it *after* boot, in the dashboard).
 8. You'll land on the **Roadmap** — the Getting Started card walks you
    through adding your xAI key and everything else.
 
+### Deploy — Memory Edition
+
+_Deploy link coming soon._
+
+Same flow as Standard, with two differences:
+
+1. The configuration panel asks for your **OpenAI API key** (required —
+   get one at https://platform.openai.com/api-keys). This powers the
+   memory system's reasoning and embeddings; your agent itself still runs
+   on the xAI key you add after boot.
+2. Your project deploys **four services** instead of one: the dashboard
+   (`hermes`) plus the memory stack (`honcho-db`, `honcho-api`,
+   `honcho-deriver`). First boot wires them together automatically —
+   conversations and meetings start flowing into memory with zero setup.
+
+**Browse your agent's memory with the OpenConcho desktop app:**
+
+1. Download it from
+   https://github.com/offendingcommit/openconcho/releases
+   (Mac Apple Silicon: the `aarch64.dmg`; Intel Mac: `x64.dmg`;
+   Windows: the `-setup.exe`).
+2. **Your memory server URL:** in Railway, open your project and click
+   the **honcho-api** service — the `https://…up.railway.app` domain
+   shown at the top of the card is the URL.
+3. **Your access token:** in Railway, open the **hermes** service →
+   **Deployments** → latest deploy → **View logs** → find the
+   `MEMORY (Honcho) — OpenConcho desktop access` banner and copy the
+   token. (It's also on your dashboard's **Keys** page as
+   `HONCHO_ADMIN_JWT`.) The same banner shows a **Memory check** line —
+   if it says anything but WORKING, it tells you exactly what to fix.
+4. In OpenConcho: add a connection, paste the URL and token, hit
+   **Test connection**, then **Save**. You'll see your workspace, the
+   people from your meetings as peers, and everything your agent has
+   concluded so far.
+
+### After deploy (both templates)
+
 **Forgot your password?** There's no email reset. In Railway: your project
-→ the service → **Variables** → set
+→ the hermes service → **Variables** → set
 `HERMES_DASHBOARD_BASIC_AUTH_PASSWORD` to a new value meeting the rules
 above → **Redeploy**. The container adopts it as your new password.
 
-**Updating:** Railway → your service → **Deployments** → **Redeploy**
-pulls the current `stable` image. Your data lives on the `/opt/data`
-volume and survives updates.
+**Updating:** Railway → the service → **Deployments** → **Redeploy**
+pulls the current image. On the Memory Edition, redeploying `honcho-api`
+and `honcho-deriver` the same way upgrades the memory system (migrations
+run automatically at boot). Your data lives on persistent volumes and
+survives updates.
 
 ---
 
