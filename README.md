@@ -132,10 +132,17 @@ exactly where it is:
    - `HONCHO_BASE_URL` = `http://${{honcho-api.RAILWAY_PRIVATE_DOMAIN}}:8000`
    - `HONCHO_PUBLIC_URL` = `${{honcho-api.RAILWAY_PUBLIC_DOMAIN}}`
 5. **Redeploy** the hermes service. First boot self-wires the memory
-   system — and then something great happens: over the next few hours the
-   sync ships your **entire existing history** into memory — every past
-   conversation, meeting, brief, doc, and insight. Nothing to export,
-   nothing to run.
+   system — and then something great happens: your **entire existing
+   history** ships into memory automatically — every past conversation,
+   meeting, brief, doc, and insight. Nothing to export, nothing to run.
+
+   **What to expect:** the sync runs hourly (daytime hours) and moves up
+   to ~2,000 chat messages per run, so a long history takes a few runs to
+   finish — watch the peers and sessions multiply in OpenConcho with each
+   pass. After the raw history lands, the memory system keeps working in
+   the background digesting it into conclusions, so answers about your
+   history get noticeably richer over the first day. New conversations
+   are captured live from the moment you redeploy.
 6. OpenConcho access works exactly as described above (URL from the
    honcho-api service card, token on your Keys page).
 
