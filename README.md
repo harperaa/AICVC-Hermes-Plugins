@@ -110,6 +110,35 @@ still show no deployments, delete the project and hit the deploy link
 again (a rare Railway provisioning hiccup — your configuration is not the
 problem).
 
+### Upgrading a Standard deployment to Memory Edition
+
+Already running the Standard template? You don't migrate anything — the
+memory stack installs **into your existing project** and your data stays
+exactly where it is:
+
+1. Open the **Memory Upgrade** deploy link (the three memory services
+   only — no second dashboard):
+
+   **https://railway.com/deploy/pNtlwv?referralCode=7XgUoY**
+
+2. On the deploy page, click the **"Deploy to: New Project"** dropdown
+   and select **your existing project** instead.
+3. Paste your **OpenAI API key** (required) → Save Config → **Deploy**.
+   The `honcho-db`, `honcho-api`, and `honcho-deriver` services appear
+   next to your existing dashboard service.
+4. Add three variables to your existing **hermes** service (Variables →
+   New Variable, exact values including the `${{...}}` syntax):
+   - `HONCHO_JWT_SECRET` = `${{honcho-api.AUTH_JWT_SECRET}}`
+   - `HONCHO_BASE_URL` = `http://${{honcho-api.RAILWAY_PRIVATE_DOMAIN}}:8000`
+   - `HONCHO_PUBLIC_URL` = `${{honcho-api.RAILWAY_PUBLIC_DOMAIN}}`
+5. **Redeploy** the hermes service. First boot self-wires the memory
+   system — and then something great happens: over the next few hours the
+   sync ships your **entire existing history** into memory — every past
+   conversation, meeting, brief, doc, and insight. Nothing to export,
+   nothing to run.
+6. OpenConcho access works exactly as described above (URL from the
+   honcho-api service card, token on your Keys page).
+
 ### After deploy (both templates)
 
 **Forgot your password?** There's no email reset. In Railway: your project
