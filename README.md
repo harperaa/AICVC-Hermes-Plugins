@@ -105,6 +105,12 @@ Same flow as Standard, with two differences:
    people from your meetings as peers, and everything your agent has
    concluded so far.
 
+**If the deploy sticks on "Applying changes"** for more than a couple of
+minutes with no service activity: refresh the page first; if the services
+still show no deployments, delete the project and hit the deploy link
+again (a rare Railway provisioning hiccup — your configuration is not the
+problem).
+
 ### After deploy (both templates)
 
 **Forgot your password?** There's no email reset. In Railway: your project
